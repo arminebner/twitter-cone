@@ -1,11 +1,24 @@
-import React from 'react'
+import React, { useEffect, useContext } from 'react'
+import { UserContext } from './UserContext'
 import { NavLink } from 'react-router-dom'
+import axios from 'axios'
 
-const LogIn = ({users}) => {
+const LogIn = () => {
+    const [ users, setUsers ] = useContext(UserContext)
     //console.log(users);
 
-    //state for user for sidebar (pass as prop, lift state to app.js or use context)
-    //maybe context would be the best fit bc of filter-function
+    useEffect(() => {
+        axios.get('https://jsonplaceholder.typicode.com/users')
+        .then((response) => {
+          // handle success
+          //console.log(response.data);
+          setUsers(response.data)
+        })
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+        })
+    }, [])
     
     return (
         <div className='all-users'>

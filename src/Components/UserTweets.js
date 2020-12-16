@@ -33,6 +33,7 @@ const UserTweeds = ({users}) => {
         <div>
             {userTweets ?
                 userTweets.map(tweet => (
+                    /*onClick function to set currentUser in context to get used in sidebar*/
                     <NavLink to={`/usertweets/singletweet/${tweet.title}`}><div>{tweet.title}</div></NavLink>
                 ))
             : 'loading tweets'
