@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, NavLink } from 'react-router-dom'
 import axios from 'axios'
+import './UserTweets.css'
 
 const UserTweeds = ({users}) => {
     //console.log(users);
@@ -30,11 +31,12 @@ const UserTweeds = ({users}) => {
       }, [])
     
     return (
-        <div>
+        <div className='user-tweets'>
             {userTweets ?
                 userTweets.map(tweet => (
                     /*onClick function to set currentUser in context to get used in sidebar*/
-                    <NavLink to={`/usertweets/singletweet/${tweet.title}`}><div>{tweet.title}</div></NavLink>
+                    <NavLink to={`/usertweets/singletweet/${tweet.id}`}><div className='usertweets-title'>{tweet.title} </div></NavLink>
+
                 ))
             : 'loading tweets'
             }

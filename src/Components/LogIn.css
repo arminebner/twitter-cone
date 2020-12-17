@@ -1,5 +1,15 @@
 .all-users {
+	padding-left: 30px;
 	display: flex;
+	flex-direction: column;
+	text-decoration: none;
+}
+
+.user-container {
+	margin: 10px 0 10px 0;
+	display: flex;
+	align-items: center;
+	gap: 10px;
 }
 
 .avatar {
